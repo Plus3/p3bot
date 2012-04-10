@@ -14,6 +14,7 @@ def smsEcho():
     print request.args
 
 def init(): pass
+def ready(c): pass
     
     # for pos, i in enumerate(REPOS):
     #     REPOSS.append([CLI.repos.show(i[0])])
