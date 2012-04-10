@@ -16,7 +16,7 @@ def init():
     sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM) #Please dont jizz in this sock plz ty
     sock.bind(("127.0.0.1", 5050))
     sock.listen(1)
-    while running: #Not sure if this will loop even when parsing; inspect later
+    while True: #Not sure if this will loop even when parsing; inspect later
         client, address = sock.accept()
         data = client.recv(2048) #2048 can be bumped up later, not really a problem
         print data
