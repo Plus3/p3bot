@@ -2,9 +2,9 @@ from flask import Flask, request, redirect, session
 
 app = Flask(__name__)
 
-@app.route("/api_call/")
+@app.route("/api_call/",)
 def smsEcho():
-    print request.args
+    print request.data
     return ""
 
 if __name__ == "__main__":
