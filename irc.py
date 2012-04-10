@@ -140,6 +140,7 @@ class Connection():
         print self._info
         self.c.connect((self._info[0], self._info[1]))
         self.alive = True
+        time.sleep(1)
         self.c.send('NICK %s\r\n' % self._info[2])
         self.c.send('USER %s 0 * :WittleBoteh Hipstah\r\n' % self._info[2])
         startPong = time.time()

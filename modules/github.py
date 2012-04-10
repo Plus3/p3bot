@@ -1,21 +1,33 @@
 from lib import Command, Event
-from moddata import githubkey, repos
+from mod_data import githubkey
 from github2.client import Github
+import os, sys, time
+import flask
 
-REPOS = []
-CLIENT = Github(username="B1narysB0t", api_token=githubkey)
-[('b1naryth1ef/japil', 'master'), 'b1naryth1ef/pydskchk', 'master']
+channel = '#urtdevs'
+CLI = Github(username="B1narysB0t", api_token=githubkey)
+REPOS = [('urtdevs/website', 'master')]
+REPOSS = []
+app = Flask(__name__)
 
+@app.route("/helo_api/")
+def smsEcho():
+    print request.args
 
 def init():
-    for i in repos:
-        r = Repo(i[0])
-        #r.create_remote('origin', i[2])
-        o = r.remotes.origin
-        o.pull()
-        REPOS.append(o)
-    while True:
-        time.sleep(30)
-        for i in REPOS:
-            i.pull()
+    app.run(debug=True, host='0.0.0.0')
+    # for pos, i in enumerate(REPOS):
+    #     REPOSS.append([CLI.repos.show(i[0])])
 
+# def ready(c):
+#     while True:
+#         #print 'Looping'
+#         for pos, i in enumerate(REPOS):
+#             z = CLI.repos.show(i[0])
+#             #print z.pushed_at, REPOSS[pos][0].pushed_at
+#             if z.pushed_at != REPOSS[pos][0].pushed_at:
+#                 REPOSS[pos][0] = z
+#                 m = CLI.commits.list(i[0], i[1])
+#                 #print 'Sending...'
+#                 c.send(channel, 'New commit on %s [%s]: %s (%s)' % (i[0], i[1], m[0].message, 'http://github.com'+m[0].url))
+#         time.sleep(30)

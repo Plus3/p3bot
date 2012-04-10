@@ -2,11 +2,11 @@ from irc import Connection, Client, Listener
 from messages import getString
 import time, sys, os, thread, database
 
-AUTO_JOINS = ['plus3']
+AUTO_JOINS = ['urtdevs']
 AUTO_REJOIN = True
 SNIDE_MODE = True
 CMD_PREFIX = '!'
-MODS = ['main']
+MODS = ['main', 'github']
 MODYS = []
 THREADS = []
 DB = None
@@ -99,10 +99,10 @@ def loadMods():
 def init():
     global DB, CONN, c, AUTO_JOINS, MODYS
     #try:
-    if 1==1:
+    if 1 == 1:
         loadMods()
         DB = database.Database()
-        CONN = Connection(Host="gameservers.tx.us.quakenet.org", Nick="PluzB0t").connect(True, debug=False)
+        CONN = Connection(Host="irc.GameSurge.net", Nick="PluzB0t").connect(True, debug=False)
         c = Client(CONN)
 
         for i in MODYS:

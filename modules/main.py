@@ -2,7 +2,6 @@ from lib import Cmd, Event, DB
 from lib import c
 from database import db
 
-
 @Cmd('!register', 'Register yourself as a user. Use in private messages to the bot /only/', '%s <password (6-35chars)>')
 def register(obj):
     print 'BoooooYahhhh'
