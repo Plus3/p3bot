@@ -123,5 +123,5 @@ def init():
 
 if __name__ == '__main__': 
 
-    init()
+    thread.start_new_thread(init, ())
     app.run(debug=True, host='0.0.0.0')
