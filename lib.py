@@ -1,6 +1,9 @@
 from irc import Connection, Client, Listener
 from messages import getString
 import time, sys, os, thread, database
+from flask import Flask, request, redirect, session
+
+app = Flask(__name__)
 
 AUTO_JOINS = ['urtdevs']
 AUTO_REJOIN = True
@@ -118,4 +121,7 @@ def init():
     # finally:
     #     DB.save()
 
-if __name__ == '__main__': init()
+if __name__ == '__main__': 
+
+    init()
+    app.run(debug=True, host='0.0.0.0')

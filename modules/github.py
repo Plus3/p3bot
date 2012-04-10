@@ -1,22 +1,20 @@
 from lib import Command, Event
 from mod_data import githubkey
 from github2.client import Github
-from flask import Flask, request, redirect, session
 import os, sys, time
-import flask
+from lib import app
 
 channel = '#urtdevs'
 CLI = Github(username="B1narysB0t", api_token=githubkey)
 REPOS = [('urtdevs/website', 'master')]
 REPOSS = []
-app = Flask(__name__)
 
 @app.route("/helo_api/")
 def smsEcho():
     print request.args
 
-def init():
-    app.run(debug=True, host='0.0.0.0')
+def init(): pass
+    
     # for pos, i in enumerate(REPOS):
     #     REPOSS.append([CLI.repos.show(i[0])])
 
